@@ -1,0 +1,44 @@
+ru:
+  timestamps: &timestamps
+    created_at : Дата создания
+    updated_at : Дата обновления
+    id         : ID
+
+  devise_tracking: &devise_tracking
+    current_sign_in_at  : Начало текущей сессии
+    current_sign_in_ip  : IP текущей сессии
+    last_sign_in_at     : Последнее посещение
+    last_sign_in_ip     : IP последней сессии
+    sign_in_count       : Количество сессий
+
+  activerecord:
+    attributes:
+      user:
+        about       : Биография
+        address     : Адрес
+        avatar      : Аватар
+        birthday    : День рождения
+        email       : Электронная почта
+        first_name  : Имя
+        gender      : Пол
+        last_name   : Фамилия
+        locale      : Язык
+        password    : Пароль
+        time_zone_name : Часовой пояс
+        current_password : Старый пароль
+        password_confirmation : Подтвердите пароль
+
+        phone       : Телефон
+        unconfirmed_phone : Телефон
+        phone_confirmation_token : Проверочный код
+
+        remember_me : Запомнить меня
+        role        : Роль
+        roles:
+          user      : Пользователь
+          moderator : Модератор
+          admin     : Админ
+          host      : Хост
+          manager   : Менеджер
+        <<: *devise_tracking
+        <<: *timestamps

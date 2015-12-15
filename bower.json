@@ -1,0 +1,16 @@
+{
+  "name": "gulp_on_rails",
+  "version": "0.0.0",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ujs": "~1.1.0"
+  }
+}

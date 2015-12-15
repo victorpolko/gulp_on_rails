@@ -1,0 +1,44 @@
+en:
+  timestamps: &timestamps
+    created_at : Created at
+    updated_at : Updated at
+    id         : ID
+
+  devise_tracking: &devise_tracking
+    current_sign_in_at  : Current session start at
+    current_sign_in_ip  : Current session IP
+    last_sign_in_at     : Last seen
+    last_sign_in_ip     : Last session IP
+    sign_in_count       : Sessions count
+
+  activerecord:
+    attributes:
+      user:
+        about       : About
+        address     : Address
+        avatar      : Avatar
+        birthday    : Birthday
+        email       : Email
+        first_name  : First name
+        gender      : Gender
+        last_name   : Last name
+        locale      : Language
+        time_zone_name : Time Zone
+        password    : Password
+        current_password : Old password
+        password_confirmation : Confirm password
+
+        phone       : Phone
+        unconfirmed_phone : Phone
+        phone_confirmation_token : Verification Code
+
+        role        : Role
+        remember_me : Remember me
+        roles:
+          user      : User
+          moderator : Moderator
+          admin     : Admin
+          host      : Host
+          manager   : Manager
+        <<: *devise_tracking
+        <<: *timestamps

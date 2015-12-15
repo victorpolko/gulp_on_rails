@@ -1,0 +1,14 @@
+#!/bin/bash
+# Ruby gems
+bundle install && echo -e "\n"
+
+# Database
+bundle exec rake db:create db:migrate db:seed && echo -e "Database created successfully.\n"
+
+# NPM
+npm install && rm -rf etc/ && echo -e "NPM  installed all modules to node_modules/ directory.\n"
+
+# Bower
+bower install && echo -e "Bower installed all modules to app/frontend/bower/ directory.\n"
+
+echo -e "\nYour project is ready to be run! Start server and Gulp with\n\tbundle exec foreman start"

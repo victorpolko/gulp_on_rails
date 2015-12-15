@@ -1,0 +1,6 @@
+#!/bin/bash
+rm -rf app/frontend/build/ && echo -e "Gulp-built files deleted.\n"
+rm -rf node_modules/ && echo -e "NPM modules deleted.\n"
+rm -rf app/frontend/bower/ && echo -e "Bower modules deleted.\n"
+rm -rf log/*.log && echo -e "Logs deleted.\n"
+rm -rf tmp/cache/ && echo -e "Cache cleared."

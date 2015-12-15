@@ -1,0 +1,13 @@
+doctype html
+html lang="en"
+  = render 'shared/head'
+
+  body
+    .x-layout
+      .x-layout__content
+        = yield
+
+      footer
+        = render 'shared/footer'
+
+  = render 'shared/scripts'

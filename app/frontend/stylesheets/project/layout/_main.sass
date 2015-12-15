@@ -1,0 +1,34 @@
+@import "includes/mixins"
+
+html, body
+  height: 100%
+
+body
+  background-color: $body-bg-color
+  color: $body-color
+  font-family: 'Roboto', sans
+  font-size: $font-size-base
+  font-weight: 300
+  line-height: $font-size-base
+
+  &::after
+    +absolute
+    background-image: url('landing_background.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    content: ''
+    filter: brightness(40%) contrast(100%) saturate(10%) hue-rotate(-20deg)
+    opacity: 1
+    z-index: -1
+
+  ::selection
+    background-color: $orange
+    color: $white
+
+.x-layout
+  +flex(column)
+  min-height: 100vh
+  min-height: 100%
+
+  &__content
+    flex-grow: 1

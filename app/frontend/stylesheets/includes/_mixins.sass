@@ -1,0 +1,92 @@
+@import "colors"
+@import "variables"
+@import "functions"
+
+// absolute
+// inline-block
+// ellipsis
+// flex
+// GPU-rendered
+// md-shadow
+// responsive-font-h
+// responsive-font-w
+
+=absolute($top: null, $right: null, $bottom: null, $left: null)
+  @if $top == null
+    $top: 0
+    $right: $top
+    $bottom: $top
+    $left: $top
+
+  @if $right == null
+    $right: $top
+    $bottom: $top
+    $left: $top
+
+  @if $bottom == null
+    $bottom: $top
+    $left: $right
+
+  @if $left == null
+    $left: $right
+
+  position: absolute
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+
+=inline-block($alignment: bottom)
+  display: inline-block
+  vertical-align: $alignment
+
+=ellipsis()
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+=flex($direction: row, $aitems: stretch, $jcontent: flex-start, $wrap: nowrap)
+  display: flex
+  flex-direction: $direction
+  align-items: $aitems
+  justify-content: $jcontent
+  flex-wrap: $wrap
+
+=GPU-rendered
+  transform: translateZ(0)
+
+=md-shadow
+  &::after
+    +absolute(100%, 0, 0, 0)
+    content: ''
+    box-shadow: inset 0 10px 15px -15px #000
+    height: $shift
+    z-index: 1
+
+=responsive-font-h($font-size-min, $font-size-max, $height-min, $height-max)
+  $fs-diff: unitless($font-size-max - $font-size-min)
+  $h-diff: unitless($height-max - $height-min)
+
+  font-size: calc(#{$font-size-min} + #{$fs-diff} * ((100vh - #{$height-min}) / #{$h-diff}))
+
+  @media screen and (max-height: $height-min)
+    &
+      font-size: $font-size-min
+
+  @media screen and (min-height: $height-max)
+    &
+      font-size: $font-size-max
+
+=responsive-font-w($font-size-min, $font-size-max, $width-min, $width-max)
+  $fs-diff: unitless($font-size-max - $font-size-min)
+  $h-diff: unitless($width-max - $width-min)
+
+  font-size: calc(#{$font-size-min} + #{$fs-diff} * ((100vw - #{$width-min}) / #{$h-diff}))
+
+  @media screen and (max-height: $width-min)
+    &
+      font-size: $font-size-min
+
+  @media screen and (min-height: $width-max)
+    &
+      font-size: $font-size-max

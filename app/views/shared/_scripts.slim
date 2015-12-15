@@ -1,0 +1,7 @@
+javascript:
+  window.locale = "#{ I18n.locale.to_s }"
+  window.railsEnv = "#{ Rails.env }"
+
+= gulp_javascript_tag 'scripts'
+
+= yield :additional_js

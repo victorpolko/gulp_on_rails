@@ -1,0 +1,37 @@
+// Colors
+$green: #85B93B;
+
+$blue: #16BBE8;
+$blue-hover: #4FC3F7;
+
+$light-grey: #EEEEFB;
+$grey: #9A9AA9;
+$dark-grey: #252428;
+
+$orange: #FF8000;
+
+$black: #1A191D;
+$black-transparent: transparentize($black, .81);
+
+$white: white;
+$white-transparent: transparentize($white, .62);
+
+$red: #EF5350;
+
+$color-collection:  (
+                     ('green',             $green             ),
+                     ('blue',              $blue              ),
+                     ('blue-hover',        $blue-hover        ),
+                     ('light-grey',        $light-grey        ),
+                     ('grey',              $grey              ),
+                     ('dark-grey',         $dark-grey         ),
+                     ('orange',            $orange            ),
+                     ('black',             $black             ),
+                     ('black-transparent', $black-transparent ),
+                     ('white',             $white             ),
+                     ('white-transparent', $white-transparent ),
+                     ('red',               $red               )
+                    );
+
+$body-bg-color: #F6F6FD;
+$body-color: #646473;
