@@ -8,7 +8,7 @@ $.fn.scrollWithSpeed = (target, speed = 10000, easing, complete) ->
     complete
 
 # Smooth Anchors Scrolling
-$('a[href^=#]:not([href=#]):not(.carousel-control):not([role="tab"])').click ->
+$('a[href^="#"]:not([href="#"]):not(.carousel-control):not([role="tab"])').click ->
   $target = $(@hash)
   $target =
     if $target.length > 0

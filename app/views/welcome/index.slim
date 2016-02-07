@@ -6,4 +6,7 @@ h1.x-page-header Hello you, #{ link_to 'mortal', '/', data: { confirm: 'Ready to
     If you want to change HTML, translations, styles or scripts, go change them and watch for changes in the browser. <br>
 
 h2
-  | I was born to destroy you.
+
+/ All additional separate javascript files go here
+- content_for :additional_js
+  = gulp_javascript_tag 'ko/models/main'

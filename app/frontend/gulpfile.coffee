@@ -11,11 +11,20 @@ if process.env.NODE_ENV in [undefined, 'development']
 ### JavaScript ###
 #
 gulp.task 'js', ->
-  gulp.src config.js.manifest
+  gulp.src config.js.manifest.common
     .pipe $.changed(config.BUILD_DEST)
     .pipe $.sourceMaps.init()
     .pipe $.if /.coffee/, $.coffee()
     .pipe $.concat('scripts.js')
+    .pipe $.sourceMaps.write()
+    .pipe gulp.dest(config.BUILD_DEST)
+    .pipe $.bSync.stream()
+
+  # Static one-by-one includeable files
+  gulp.src config.js.manifest.static, base: './javascripts/'
+    .pipe $.changed(config.BUILD_DEST)
+    .pipe $.sourceMaps.init()
+    .pipe $.if /.coffee/, $.coffee()
     .pipe $.sourceMaps.write()
     .pipe gulp.dest(config.BUILD_DEST)
     .pipe $.bSync.stream()
@@ -50,13 +59,28 @@ gulp.task 'images', ->
 ### Production ###
 #
 gulp.task 'deploy:js', ->
-  gulp.src config.js.manifest
+  gulp.src config.js.manifest.common
     .pipe $.if /.coffee/, $.coffee()
     .pipe $.concat('scripts.js')
     .pipe $.uglify()
     .pipe $.rev()
+    .pipe gulp.dest(config.PROD_DEST) # Write file
+    .pipe $.rev.manifest "#{   config.PROD_DEST }/.gulp-js-manifest.json",
+      merge: true
+      base: config.PROD_DEST
+
+    .pipe gulp.dest(config.PROD_DEST) # Write Manifest
+
+  # Static one-by-one includeable files
+  gulp.src config.js.manifest.static, base: './javascripts/'
+    .pipe $.if /.coffee/, $.coffee()
+    .pipe $.uglify()
+    .pipe $.rev()
     .pipe gulp.dest(config.PROD_DEST)
-    .pipe $.rev.manifest('.gulp-js-manifest.json')
+    .pipe $.rev.manifest "#{ config.PROD_DEST }/.gulp-js-manifest.json",
+      merge: true
+      base: config.PROD_DEST
+
     .pipe gulp.dest(config.PROD_DEST)
 
 gulp.task 'deploy:css', ->

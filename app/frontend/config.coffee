@@ -12,15 +12,29 @@ module.exports =
   sources: sources
 
   js:
-    manifest: [
-      # jQuery
-      sources.vendor + 'jquery/dist/jquery.min.js'
-      sources.vendor + 'jquery-ujs/src/rails.js'
+    manifest:
+      common: [
+        # jQuery
+        sources.vendor + 'jquery/dist/jquery.min.js'
+        sources.vendor + 'jquery-ujs/src/rails.js'
 
-      # Project folders
-      sources.js + 'third-party/**/*'
-      sources.js + 'public/**/*'
-    ]
+        # KnockoutJS Framework
+        sources.vendor + 'knockout/dist/knockout.js'
+        sources.vendor + 'knockout-validation/dist/knockout.validation.min.js'
+        sources.vendor + 'knockout-validation/localization/ru-RU.js'
+
+        # Knockout handlers folder
+        sources.js + 'ko/handlers/*'
+
+        # Project folders
+        sources.js + 'third-party/**/*'
+        sources.js + 'public/**/*'
+      ]
+
+      static: [
+        # Knockout models folder
+        sources.js + 'ko/models/*'
+      ]
 
   css:
     manifest: [ sources.css + 'manifest.sass' ]
