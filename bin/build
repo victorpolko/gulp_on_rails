@@ -11,4 +11,7 @@ npm install && rm -rf etc/ && echo -e "NPM  installed all modules to node_module
 # Bower
 bower install && echo -e "Bower installed all modules to app/frontend/bower/ directory.\n"
 
+# Sidekiq is waiting for tmp/pids folder
+mkdir -p tmp/pids/
+
 echo -e "\nYour project is ready to be run! Start server and Gulp with\n\tbundle exec foreman start"
